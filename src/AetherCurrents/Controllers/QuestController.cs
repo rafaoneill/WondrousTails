@@ -35,7 +35,7 @@ namespace AetherCurrents.Controllers
             {
                 return NotFound();
             }
-            return quest;
+            return Ok(quest);
         }
     }
 }
