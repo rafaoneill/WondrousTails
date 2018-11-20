@@ -45,7 +45,8 @@ namespace WolvesDen.Profiles
                 .ForMember(d => d.ItemSpecialBonusParam, o => o.MapFrom(s => s["ItemSpecialBonus{Param}"]))
                 .ForMember(d => d.MaterializeType, o => o.MapFrom(s => s["MaterializeType"]))
                 .ForMember(d => d.MateriaSlotCount, o => o.MapFrom(s => s["MateriaSlotCount"]))
-                .ForMember(d => d.IsPvp, o => o.MapFrom(s => s[86]));
+                .ForMember(d => d.IsPvp, o => o.MapFrom(s => s[86]))
+                .ForMember(d => d.Stain, o => o.Ignore());
         }
     }
 }
