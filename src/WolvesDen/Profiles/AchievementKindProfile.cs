@@ -1,12 +1,20 @@
+using AetherCurrents.Database.Entities;
 using AutoMapper;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for an <see cref="AchievementKind" />.
+    /// </summary>
     public class AchievementKindProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="SaintCoinach.Xiv.AchievementKind" /> class
+        /// to the <see cref="AchievementKind" /> class.
+        /// </summary>
         public AchievementKindProfile()
         {
-            CreateMap<SaintCoinach.Xiv.AchievementKind, AetherCurrents.Database.Entities.AchievementKind>()
+            CreateMap<SaintCoinach.Xiv.AchievementKind, AchievementKind>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key));
         }
     }

@@ -1,12 +1,20 @@
+using AetherCurrents.Database.Entities;
 using AutoMapper;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for a <see cref="Map" />.
+    /// </summary>
     public class MapProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="SaintCoinach.Xiv.Map" /> class
+        /// to the <see cref="Map" /> class.
+        /// </summary>
         public MapProfile()
         {
-            CreateMap<SaintCoinach.Xiv.Map, AetherCurrents.Database.Entities.Map>()
+            CreateMap<SaintCoinach.Xiv.Map, Map>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
                 .ForMember(d => d.SmallMap, o => o.MapFrom(s => s.SmallImagePath.Replace("tex","png")))
                 .ForMember(d => d.MediumMap, o => o.MapFrom(s => s.MediumImagePath.Replace("tex","png")))

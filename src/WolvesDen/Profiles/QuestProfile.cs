@@ -1,15 +1,20 @@
+using AetherCurrents.Database.Entities;
 using AutoMapper;
-using SaintCoinach.Xiv;
-using System.Collections.Generic;
-using System;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for a <see cref="Quest" />.
+    /// </summary>
     public class QuestProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="SaintCoinach.Xiv.Quest" /> class
+        /// to the <see cref="Quest" /> class.
+        /// </summary>
         public QuestProfile()
         {
-            CreateMap<Quest, AetherCurrents.Database.Entities.Quest>()
+            CreateMap<SaintCoinach.Xiv.Quest, Quest>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
                 .ForMember(d => d.QuestId, o => o.MapFrom(s => s.Id))
                 .ForMember(d => d.Expansion, o => o.MapFrom(s => ((SaintCoinach.Xiv.XivRow)s["Expansion"]).Key))
@@ -34,8 +39,8 @@ namespace WolvesDen.Profiles
                 .ForMember(d => d.IconSpecial, o => o.MapFrom(s => s.SpecialIcon.Path.Replace("tex","png")))
                 .ForMember(d => d.EventIconType, o => o.MapFrom(s => s[1512]))
                 .ForMember(d => d.RepeatIntervalType, o => o.MapFrom(s => (byte)s.RepeatInterval))
-                .ForMember(d => d.ClassJobCategoryUnlock, o => o.MapFrom(s => (byte)((ClassJobCategory)s["ClassJobCategory[0]"]).Key))
-                .ForMember(d => d.ClassJobCategoryComplete, o => o.MapFrom(s => (byte)((ClassJobCategory)s["ClassJobCategory[1]"]).Key))
+                .ForMember(d => d.ClassJobCategoryUnlock, o => o.MapFrom(s => (byte)((SaintCoinach.Xiv.ClassJobCategory)s["ClassJobCategory[0]"]).Key))
+                .ForMember(d => d.ClassJobCategoryComplete, o => o.MapFrom(s => (byte)((SaintCoinach.Xiv.ClassJobCategory)s["ClassJobCategory[1]"]).Key))
                 .ForMember(d => d.ClassJobLevelUnlock, o => o.MapFrom(s => s["ClassJobLevel[0]"]))
                 .ForMember(d => d.ClassJobLevelComplete, o => o.MapFrom(s => s["ClassJobLevel[1]"]))
                 .ForMember(d => d.QuestStatus, o => o.Ignore());

@@ -1,10 +1,17 @@
-using AutoMapper;
 using AetherCurrents.Database.Entities;
+using AutoMapper;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for a <see cref="TripleTriadCardResident" />.
+    /// </summary>
     public class TripleTriadCardResidentProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="SaintCoinach.Xiv.TripleTriadCardResident" /> class
+        /// to the <see cref="TripleTriadCardResident" /> class.
+        /// </summary>
         public TripleTriadCardResidentProfile()
         {
             CreateMap<SaintCoinach.Xiv.TripleTriadCardResident, TripleTriadCardResident>()

@@ -1,13 +1,21 @@
+using AetherCurrents.Database.Entities;
 using AutoMapper;
-using System.Collections.Generic;
+using SaintCoinach.Xiv;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for a <see cref="SpearfishingNotebook" />.
+    /// </summary>
     public class SpearfishingNotebookProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="XivRow" /> class
+        /// to the <see cref="SpearfishingNotebook" /> class.
+        /// </summary>
         public SpearfishingNotebookProfile()
         {
-            CreateMap<SaintCoinach.Xiv.XivRow, AetherCurrents.Database.Entities.SpearfishingNotebook>()
+            CreateMap<XivRow, SpearfishingNotebook>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
                 .ForMember(d => d.GatheringLevel, o => o.MapFrom(s => s[0]))
                 .ForMember(d => d.TerritoryType, o => o.MapFrom(s => s[2]))

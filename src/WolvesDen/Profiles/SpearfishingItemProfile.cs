@@ -1,10 +1,17 @@
+using AetherCurrents.Database.Entities;
 using AutoMapper;
-using System.Collections.Generic;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for a <see cref="SpearfishingItem" />.
+    /// </summary>
     public class SpearfishingItemProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="SaintCoinach.Xiv.SpearfishingItem" /> c.ass
+        /// to the <see cref="SpearfishingItem" /> class.
+        /// </summary>
         public SpearfishingItemProfile()
         {
             CreateMap<SaintCoinach.Xiv.SpearfishingItem, AetherCurrents.Database.Entities.SpearfishingItem>()

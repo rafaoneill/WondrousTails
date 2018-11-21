@@ -1,31 +1,30 @@
+using AetherCurrents.Database.Entities;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
+using SaintCoinach.Xiv;
 using System.Linq;
 
 namespace WolvesDen.Profiles
 {
+    /// <summary>
+    /// Profile for a <see cref="QuestDetail" />.
+    /// </summary>
     public class QuestDetailProfile : Profile
     {
+        /// <summary>
+        /// Mapping from the <see cref="XivRow" /> class
+        /// to the <see cref="QuestDetail" /> class.
+        /// </summary>
         public QuestDetailProfile()
         {
-            CreateMap<SaintCoinach.Xiv.XivRow, AetherCurrents.Database.Entities.QuestDetail>()
+            CreateMap<XivRow, QuestDetail>()
                 .ForMember(d => d.Id, o => o.Ignore())
                 .ForMember(d => d.SheetFullName, o => o.MapFrom(s => s.Sheet.Name))
-                // .ForMember(d => d.QuestTextId, o => o.MapFrom(s => s[0].ToString().Length == 0 ? string.Empty : s[0].ToString().Split('_').ToList().GetRange(1,2).Join('_', this)))
                 .ForMember(d => d.QuestTextId, o => o.ResolveUsing(s => {
                     if(s[0].ToString().Length == 0)
                     {
                         return string.Empty;
                     }
                     var parsed = s[0].ToString().Split('_').ToList().GetRange(1,2);
-                    // Console.WriteLine("Text " + s[0].ToString());
-                    // foreach(var item in parsed.Select((d,i) => new { Data = d, Index = i}))
-                    // {
-                    //     Console.WriteLine(string.Format("Item #{0} is {1}",item.Index, item.Data));
-                    // }
-                    // Console.WriteLine("Parsed count " + parsed.Count);
-                    // Console.Read();
                     return string.Join("_",parsed.ToArray());
                 }))
                 .ForMember(d => d.DetailKey, o => o.MapFrom(s => s[0]))
