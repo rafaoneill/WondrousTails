@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WondrousTails</title>
+    <title>Wondrous Tails</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -15,50 +15,162 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <environment include="Production">
+         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <environment exclude="Production">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<header class="blog-header">
+
+</header>
+ <div class="container">
+        <nav class="navbar navbar-default navbar-inverse">
+            <div class="container-fluid">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Character">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WondrousTails</a>
             </div>
-            <div class="navbar-collapse collapse">
+
+            <div class="collapse navbar-collapse xiv-menu">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            Character
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Stance</a></li>
+                            <li><a href="#">Actions &macr; Traits</a></li>
+                            <li><a href="#">Currency</a></li>
+                            <li><a href="@Url.Action("Index","Character")">Character</a></li>
+                            <li><a href="#">Armoury Chest</a></li>
+                            <li><a href="#">Inventory</a></li>
+                            <li><a href="#">Companion</a></li>
+                            <li><a href="#">Mount Guide</a></li>
+                            <li><a href="#">Minion Guide</a></li>
+                            <li><a href="#">PvP Profile</a></li>
+                            <li><a href="#">Gold Saucer</a></li>
+                            <li><a href="#">Achivements</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            Duty
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Recommendations</a></li>
+                            <li><a href="#">Key Items</a></li>
+                            <li><a href="@Url.Action("Index","Journal")">Journal</a></li>
+                            <li><a href="#">Duty Finder</a></li>
+                            <li><a href="#">Raid Finder</a></li>
+                            <li><a href="#">Hall of the Novice</a></li>
+                            <li><a href="#">Timers</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            Logs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Hunting Log</a></li>
+                            <li><a href="#">Sightseeing Log</a></li>
+                            <li><a href="#">Crafting Log</a></li>
+                            <li><a href="#">Gathering Log</a></li>
+                            <li><a href="@Url.Action("Index", "FishingLog")">Fishing Log</a></li>
+                            <li><a href="#">Fish Guide</a></li>
+                            <li><a href="@Url.Action("Index", "OrchestrionList")">Orchestrion List</a></li>
+                            <li><a href="#">Challenge Log</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            Travel
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Aether Currents</a></li>
+                            <li><a href="#">Maps</a></li>
+                            <li><a href="#">Teleport</a></li>
+                            <li><a href="#">Return</a></li>
+                        </ul>
+                    </li>
+
+                   <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            Social
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Stance</a></li>
+                            <li><a href="#">Actions &macr; Traits</a></li>
+                            <li><a href="#">Currency</a></li>
+                            <li><a href="#">Character</a></li>
+                            <li><a href="#">Armoury Chest</a></li>
+                            <li><a href="#">Inventory</a></li>
+                            <li><a href="#">Companion</a></li>
+                            <li><a href="#">Mount Guide</a></li>
+                            <li><a href="#">Minion Guide</a></li>
+                            <li><a href="#">PvP Profile</a></li>
+                            <li><a href="#">Gold Saucer</a></li>
+                            <li><a href="#">Achivements</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            System
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Stance</a></li>
+                            <li><a href="#">Actions &macr; Traits</a></li>
+                            <li><a href="#">Currency</a></li>
+                            <li><a href="#">Character</a></li>
+                            <li><a href="#">Armoury Chest</a></li>
+                            <li><a href="#">Inventory</a></li>
+                            <li><a href="#">Companion</a></li>
+                            <li><a href="#">Mount Guide</a></li>
+                            <li><a href="#">Minion Guide</a></li>
+                            <li><a href="#">PvP Profile</a></li>
+                            <li><a href="#">Gold Saucer</a></li>
+                            <li><a href="#">Achivements</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - WondrousTails</p>
-        </footer>
+        </nav>
     </div>
 
+    <div class="container">
+        @RenderBody()
+    </div>
+    <!-- Bootstrap core JavaScript 
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
         </script>
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
@@ -69,6 +181,7 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
-    @RenderSection("Scripts", required: false)
+    @RenderSection("scripts", required: false)
+    
 </body>
 </html>

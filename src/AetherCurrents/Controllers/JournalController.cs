@@ -44,8 +44,7 @@ namespace AetherCurrents.Controllers
         /// GET aethercurrents/section/1
         /// </summary>
         /// <param name="id">The journal section id.</param>
-        /// <returns>The journal section represented by the id, if found.</returns>
-        
+        /// <returns>The journal section represented by the id, if found.</returns>        
         [HttpGet("section/{id}")]
         public ActionResult<JournalSection> GetJournalSection(int id)
         {
@@ -53,7 +52,7 @@ namespace AetherCurrents.Controllers
             if(section == null)
             {
                 return NotFound();
-            }
+            }            
             return Ok(section);
         }
         

@@ -1,37 +1,258 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿header {
+    height: 25px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.xiv-menu {
+    background-color: #313131;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.xiv-menu a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #f5f5dc;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.xiv-well {
+    border-radius: 5px;
+    border-color: black;
+    border-width: 3px;
+    border-style: inset;
+}
+.xiv-window {
+    height: 700px;
+    border-radius: 5px;
+    border-color: #907658;
+    border-top-style: groove;
+    border-right-style: ridge;
+    border-left-style: inset;
+    border-left-width: 3px;
+    border-bottom-style: ridge;
+    padding: 10px;
+    background-color: #313131;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.xiv-window-alternate
+{
+    height: 700px;
+    border-radius: 5px;
+    border-color: #313131;
+    border-top-style: groove;
+    border-right-style: ridge;
+    border-left-style: inset;
+    border-left-width: 3px;
+    border-bottom-style: ridge;
+    padding: 10px;
+    background-color: rgba(230, 223, 214, 1);
+}
+
+#Details
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 670px;
+    overflow-y: scroll;
+}
+#Details::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #f5f5f5;
+}
+
+.xiv-window-alternate h4.title
+{
+    color: #313131;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.xiv-window-alternate h5
+{
+    color:#f5f5dc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 14pt;
+    text-shadow: 1px 1px #313131;
+}
+
+.xiv-window-alternate p
+{
+    color: #313131;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.xiv-window-header {
+    border-color: #000000;
+    border-bottom-style: ridge;
+    border-bottom-width: 3px;
+}
+
+.xiv-window-header-borderless {
+    border: none;
+}
+
+.xiv-window-header-borderless h4.title {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+}
+
+.xiv-window-header h4.title {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+}
+h4.subtitle {
+    color: #858585;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+}
+
+.xiv-window-panel {
+    border-color: #000000;
+    border-right-style: ridge;
+    border-right-width: 3px;
+    height: 645px;
+}
+
+select.xiv-select {
+    height: 35px;
+    background: linear-gradient(to bottom, #747474, #313131);
+    color: #f5f5dc;
+    border-radius: 7px;
+    border-color: #000000;
+    border-top-style: groove;
+    border-right-style: ridge;
+    border-left-style: ridge;
+    border-bottom-style: ridge;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* select.xiv-select::before {
+    content:'v';
+} */
+
+select.xiv-select option {
+    background-color: #4a4a4a;
+}
+
+/* Nav Pills */
+.xiv-window li {
+    height: 20px;
+}
+
+.xiv-window li a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    height: 20px;
+    color: #B2AB96;
+}
+
+.xiv-window li.active a {
+    background: linear-gradient(to right, rgba(144,118, 88, 0.6), rgba(49,49,49,0.2));
+}
+.xiv-window li.active a:hover {
+    background: linear-gradient(to right, rgba(144,118, 88, 0.6), rgba(49,49,49,0.2));
+}
+.xiv-window li a:hover {
+    background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(49,49,49.02));
+}
+
+/* Accordions */
+.xiv-window .panel, .xiv-window .panel-heading {
+    background-color: inherit;
+}
+.xiv-window .panel-default {
+    border: none;
+}
+.xiv-window .panel-heading {
+    padding-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.xiv-window .panel-heading a {
+    color: #B2AB96;
+}
+.xiv-window .panel-heading a.btn-default {
+    color: #f5f5dc;
     width: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: 600;
+    background: linear-gradient(to bottom, #747474, #313131);
+    border-radius: 7px;
+    border-color: #000000;
+
+    border-top-style: groove;
+    border-right-style: ridge;
+    border-left-style: ridge;
+    border-bottom-style: ridge;
+}
+.xiv-window .panel-collapse ul {
+    margin-top: 5px;
+}
+/*
+    ui/icon/060000/060027.png for fish that I haven't caught yet
+    ui/icon/060000/060034.png for big fish that I haven't caught yet
+
+    Weather icons from 060200 to 060275
+    map fish icon 060333.png (or is it 060465)
+
+    060409 to 060410 are the quest circles
+
+    in general, lots of map markers in 060000
+*/
+
+/* General */
+.margin-top20 {
+    margin-top: 20px;
+}
+.margin-bottom10 {
+    margin-bottom: 10px;
+}
+.margin-bottom20 {
+    margin-bottom: 20px;
+}
+.padding-top20 {
+    padding-top: 20px;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+/* Icons */
+.glyphicon-ok {
+    color: lightgreen;
 }
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.glyphicon-ban-circle, .glyphicon-remove {
+    color: lightcoral;
+}
+.glyphicon-unchecked {
+    color: beige;
+}
+/* Pages */
+#FishingMap {
+    height: 640px;
+    width: 640px;
+}
+#FishingSpot {
+    margin-top: -90px;
+    padding-top: 5px;
+    min-height: 90px;
+    background-color: rgba(0,0,0,0.4);
+}
+#FishingSpot p {
+    font-weight: bold;
+    color: white;
+}
+#FishingSpot .fish-icon {
+    border-radius: 7px;
+    border-color: black;
+    border-width: 3px;
+    border-style: inset;
 }
