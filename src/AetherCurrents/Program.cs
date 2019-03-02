@@ -18,6 +18,7 @@ namespace AetherCurrents
         /// <summary>
         /// The main method for the application.
         /// </summary>
+        /// <param name="args">Application arguments.</param>
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();

@@ -10,13 +10,25 @@ using Microsoft.Extensions.Logging;
 
 namespace WondrousTails
 {
-    public class Program
+    /// <summary>
+    /// The application program class.
+    /// </summary>
+    public static class Program
     {
+        /// <summary>
+        /// The main method for the application.
+        /// </summary>
+        /// <param name="args">Application arguments.</param>
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
 
+        /// <summary>
+        /// Creates web host builder.
+        /// </summary>
+        /// <param name="args">Application arguments.</param>
+        /// <returns>IWebHostBuilder</returns>
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
