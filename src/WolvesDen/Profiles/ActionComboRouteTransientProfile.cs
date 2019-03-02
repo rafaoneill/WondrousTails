@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for an <see cref="ActionComboRouteTransient" />.
+    /// Profile for an <see cref="AetherCurrents.Database.Entities.ActionComboRouteTransient" />.
     /// </summary>
     public class ActionComboRouteTransientProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.ActionComboRouteTransient" /> class
-        /// to the <see cref="ActionComboRouteTransient" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.ActionComboRouteTransient" /> class.
         /// </summary>
         public ActionComboRouteTransientProfile()
         {

@@ -5,13 +5,13 @@ using SaintCoinach.Xiv;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="SpearfishingNotebook" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.SpearfishingNotebook" />.
     /// </summary>
     public class SpearfishingNotebookProfile : Profile
     {
         /// <summary>
-        /// Mapping from the <see cref="XivRow" /> class
-        /// to the <see cref="SpearfishingNotebook" /> class.
+        /// Mapping from the <see cref="SaintCoinach.Xiv.XivRow" /> class
+        /// to the <see cref="AetherCurrents.Database.Entities.SpearfishingNotebook" /> class.
         /// </summary>
         public SpearfishingNotebookProfile()
         {

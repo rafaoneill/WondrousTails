@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="SpearfishingItem" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.SpearfishingItem" />.
     /// </summary>
     public class SpearfishingItemProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.SpearfishingItem" /> c.ass
-        /// to the <see cref="SpearfishingItem" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.SpearfishingItem" /> class.
         /// </summary>
         public SpearfishingItemProfile()
         {

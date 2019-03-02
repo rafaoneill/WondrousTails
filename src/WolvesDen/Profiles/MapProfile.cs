@@ -1,5 +1,6 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
@@ -16,8 +17,8 @@ namespace WolvesDen.Profiles
         {
             CreateMap<SaintCoinach.Xiv.Map, Map>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
-                .ForMember(d => d.SmallMap, o => o.MapFrom(s => s.SmallImagePath.Replace("tex","png")))
-                .ForMember(d => d.MediumMap, o => o.MapFrom(s => s.MediumImagePath.Replace("tex","png")))
+                .ForMember(d => d.SmallMap, o => o.MapFrom(s => s.SmallImagePath.Replace("tex", "png", StringComparison.CurrentCulture)))
+                .ForMember(d => d.MediumMap, o => o.MapFrom(s => s.MediumImagePath.Replace("tex", "png", StringComparison.CurrentCulture)))
                 .ForMember(d => d.MapId, o => o.MapFrom(s => s.Id))
                 .ForMember(d => d.PlaceNameRegion, o => o.MapFrom(s => s.RegionPlaceName.Key))
                 .ForMember(d => d.PlaceName, o => o.MapFrom(s => s.PlaceName.Key))

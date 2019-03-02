@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Custom Ruleset" Description="Custom Ruleset" ToolsVersion="14.0">
+    <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Analyzers.ManagedCodeAnalysis">
+
+    </Rules>
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA1101" Action="None" /> <!-- Prefix local calls with this -->
+        <Rule Id="SA1200" Action="None" /> <!-- Using directive must appear within a namespace declaration -->
+        <Rule Id="SA1208" Action="None" /> <!-- Using directive for {0} must appear before directive for {1} -->
+        <Rule Id="SA1309" Action="None" /> <!-- Field must not begin with an underscore -->
+        <Rule Id="SA1633" Action="None" /> <!-- The file header is missing or not located at the top of the file. -->
+        <Rule Id="SA1642" Action="None" /> <!-- Constructor summary documentation must begin with standard text -->
+        <Rule Id="SA1652" Action="None" /> <!-- Enable XML documentation output -->
+    </Rules>
+</RuleSet>

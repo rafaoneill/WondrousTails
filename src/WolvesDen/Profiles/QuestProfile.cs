@@ -1,5 +1,6 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
@@ -35,8 +36,8 @@ namespace WolvesDen.Profiles
                 .ForMember(d => d.TomestoneRewardCount, o => o.MapFrom(s => s.TomestoneCountReward))
                 .ForMember(d => d.PlaceName, o => o.MapFrom(s => s.PlaceName.Key))
                 .ForMember(d => d.JournalGenre, o => o.MapFrom(s => s.JournalGenre.Key))
-                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex","png")))
-                .ForMember(d => d.IconSpecial, o => o.MapFrom(s => s.SpecialIcon.Path.Replace("tex","png")))
+                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex", "png", StringComparison.CurrentCulture)))
+                .ForMember(d => d.IconSpecial, o => o.MapFrom(s => s.SpecialIcon.Path.Replace("tex", "png", StringComparison.CurrentCulture)))
                 .ForMember(d => d.EventIconType, o => o.MapFrom(s => s[1512]))
                 .ForMember(d => d.RepeatIntervalType, o => o.MapFrom(s => (byte)s.RepeatInterval))
                 .ForMember(d => d.ClassJobCategoryUnlock, o => o.MapFrom(s => (byte)((SaintCoinach.Xiv.ClassJobCategory)s["ClassJobCategory[0]"]).Key))

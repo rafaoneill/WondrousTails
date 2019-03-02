@@ -19,13 +19,14 @@ namespace WolvesDen.Profiles
             CreateMap<XivRow, QuestDetail>()
                 .ForMember(d => d.Id, o => o.Ignore())
                 .ForMember(d => d.SheetFullName, o => o.MapFrom(s => s.Sheet.Name))
-                .ForMember(d => d.QuestTextId, o => o.ResolveUsing(s => {
-                    if(s[0].ToString().Length == 0)
+                .ForMember(d => d.QuestTextId, o => o.ResolveUsing(s =>
+                {
+                    if (s[0].ToString().Length == 0)
                     {
                         return string.Empty;
                     }
-                    var parsed = s[0].ToString().Split('_').ToList().GetRange(1,2);
-                    return string.Join("_",parsed.ToArray());
+                    var parsed = s[0].ToString().Split('_').ToList().GetRange(1, 2);
+                    return string.Join("_", parsed.ToArray());
                 }))
                 .ForMember(d => d.DetailKey, o => o.MapFrom(s => s[0]))
                 .ForMember(d => d.DetailDescription, o => o.MapFrom(s => s[1]));

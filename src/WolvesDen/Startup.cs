@@ -1,34 +1,47 @@
 using AetherCurrents.Database.Entities;
 using Insight.Database;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
 using SaintCoinach;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 
 namespace WolvesDen
 {
+    /// <summary>
+    /// The application startup class.
+    /// </summary>
     public class Startup
     {
-        IConfigurationRoot Configuration { get; }
+        private readonly IConfigurationRoot configuration;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Startup"/> class.
+        /// </summary>
         public Startup()
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            
-            Configuration = builder.Build();
+
+            configuration = builder.Build();
         }
 
+        /// <summary>
+        /// Configure services to be used in the application.
+        /// </summary>
+        /// <param name="services">The collection of services.</param>
+        /// <returns>The service provider.</returns>
         public ServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
 
-            var connectionString = Configuration.GetConnectionString("GubalLibrary");
-            var gameDirectory = Configuration["GameDirectory"].ToString();
+            var connectionString = configuration.GetConnectionString("GubalLibrary");
+            var gameDirectory = configuration["GameDirectory"].ToString(CultureInfo.CurrentCulture);
 
             AutoMapperConfig.RegisterMappings();
             SqlInsightDbProvider.RegisterProvider();

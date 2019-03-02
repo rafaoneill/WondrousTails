@@ -1,17 +1,18 @@
-using AutoMapper;
 using AetherCurrents.Database.Entities;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using SaintCoinach.Xiv;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
 namespace WolvesDen
 {
     /// <summary>
-    /// Class to handle a single game asset represented by a <see cref="XivSheet" />.
+    /// Class to handle a single game asset represented by a <see cref="SaintCoinach.Xiv.XivSheet{T}" />.
     /// </summary>
     public class GameSheet
     {
@@ -19,15 +20,15 @@ namespace WolvesDen
         private readonly string _sheet;
         private string _tableName;
         private bool _tableIsEmpty;
-        
+
         private Type _sourceType;
         private Type _entityType;
 
         /// <summary>
         /// Constructor. Sets up the context and game sheet to use.
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="sheet"></param>
+        /// <param name="context">The entity framework context.</param>
+        /// <param name="sheet">The name of the game sheet.</param>
         public GameSheet(AetherCurrentsContext context, string sheet)
         {
             _context = context;
@@ -42,32 +43,34 @@ namespace WolvesDen
         {
             _sourceType = Type.GetType("SaintCoinach.Xiv." + _sheet + ", SaintCoinach") ?? typeof(XivRow);
 
-            if(!_sheet.Contains("/"))
+            if (!_sheet.Contains("/", StringComparison.CurrentCulture))
             {
                 _entityType = Type.GetType("AetherCurrents.Database.Entities." + _sheet + ", AetherCurrents.Database");
                 _tableName = _sheet;
             }
-            else if(_sheet.StartsWith("quest"))
+            else if (_sheet.StartsWith("quest", StringComparison.CurrentCulture))
             {
                 _sourceType = typeof(XivRow);
                 _entityType = typeof(QuestDetail);
                 _tableName = _entityType.Name;
-            } 
-            else if(_sheet.StartsWith("custom"))
+            }
+            else if (_sheet.StartsWith("custom", StringComparison.CurrentCulture))
             {
                 // Not Implemented
                 _entityType = null;
                 _tableName = null;
-            } 
+            }
             else
             {
                 _entityType = null;
                 _tableName = null;
             }
-            if(_sourceType == null)
+
+            if (_sourceType == null)
             {
-                Utility.Message(MESSAGE_TYPE.ERROR, string.Format("Source for {0} not found.", _sheet));
+                Utility.Message(MessageType.Error, string.Format(CultureInfo.CurrentCulture, "Source for {0} not found.", _sheet));
             }
+
             return _sourceType != null && _entityType != null;
         }
 
@@ -90,22 +93,22 @@ namespace WolvesDen
         /// <param name="overwriteTable">Whether or not to overwrite existing data.</param>
         public void TransferData(List<XivRow> data, bool overwriteTable = false)
         {
-            if(!_tableIsEmpty && overwriteTable)
+            if (!_tableIsEmpty && overwriteTable)
             {
                 // Delete from table
             }
 
             int count = 0;
             int total = data.Count;
-            Utility.Message(MESSAGE_TYPE.STATUS,string.Format("{0} records for sheet " + _sheet, total));
+            Utility.Message(MessageType.Status, string.Format(CultureInfo.CurrentCulture, "{0} records for sheet " + _sheet, total));
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    foreach(var record in data.Select((d,i) => new { Item = d, Index = i }))
+                    foreach (var record in data.Select((d, i) => new { Item = d, Index = i }))
                     {
                         Type thisType = record.Item.GetType();
-                        var sheetItem = Convert.ChangeType(record.Item, thisType);
+                        var sheetItem = Convert.ChangeType(record.Item, thisType, CultureInfo.CurrentCulture);
 
                         var dbItem = Mapper.Map(sheetItem, _sourceType, _entityType);
 
@@ -117,26 +120,27 @@ namespace WolvesDen
                         count++;
                         TrackProgress(count, total);
                     }
+
                     transaction.Commit();
                 }
-                catch(DbUpdateException e)
+                catch (DbUpdateException e)
                 {
-                    Utility.Message(MESSAGE_TYPE.ERROR, e.Message);
-                    Utility.Message(MESSAGE_TYPE.ERROR, e.InnerException?.Message);
+                    Utility.Message(MessageType.Error, e.Message);
+                    Utility.Message(MessageType.Error, e.InnerException?.Message);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
-                    Utility.Message(MESSAGE_TYPE.ERROR, e.Message);
-                    Utility.Message(MESSAGE_TYPE.ERROR, e.StackTrace);
-                    Utility.Message(MESSAGE_TYPE.ERROR, e.InnerException?.Message);
+                    Utility.Message(MessageType.Error, e.Message);
+                    Utility.Message(MessageType.Error, e.StackTrace);
+                    Utility.Message(MessageType.Error, e.InnerException?.Message);
                 }
             }
         }
 
-        private void TrackProgress(int count, int total)
+        private static void TrackProgress(int count, int total)
         {
             var percentage = Math.Truncate(((double)count / (double)total) * 100);
-            Console.Write("\r{0}% - Record: {1}",percentage, count);
+            Console.Write("\r{0}% - Record: {1}", percentage, count);
         }
     }
 }

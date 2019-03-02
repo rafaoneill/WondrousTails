@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for an <see cref="JournalCategory" />.
+    /// Profile for an <see cref="AetherCurrents.Database.Entities.JournalCategory" />.
     /// </summary>
     public class JournalCategoryProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.JournalCategory" /> class
-        /// to the <see cref="JournalCategory" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.JournalCategory" /> class.
         /// </summary>
         public JournalCategoryProfile()
         {

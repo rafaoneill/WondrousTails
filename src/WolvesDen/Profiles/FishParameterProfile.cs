@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="FishParameter" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.FishParameter" />.
     /// </summary>
     public class FishParameterProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.FishParameter" /> class
-        /// to the <see cref="FishParameter" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.FishParameter" /> class.
         /// </summary>
         public FishParameterProfile()
         {

@@ -1,5 +1,6 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
@@ -20,7 +21,7 @@ namespace WolvesDen.Profiles
                 .ForMember(d => d.Category, o => o.MapFrom(s => s.AchievementCategory.Key))
                 .ForMember(d => d.Title, o => o.MapFrom(s => s.Title.Key))
                 .ForMember(d => d.Item, o => o.MapFrom(s => s.Item.Key))
-                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex","png")))
+                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex", "png", StringComparison.CurrentCulture)))
                 .ForMember(d => d.DataI, o => o.MapFrom(s => s[9]))
                 .ForMember(d => d.DataIi, o => o.MapFrom(s => s[10]))
                 .ForMember(d => d.DataIii, o => o.MapFrom(s => s[11]))

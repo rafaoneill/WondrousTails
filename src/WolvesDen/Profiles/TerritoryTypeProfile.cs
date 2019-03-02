@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="TerritoryType" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.TerritoryType" />.
     /// </summary>
     public class TerritoryTypeProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.TerritoryType" /> class
-        /// to the <see cref="TerritoryType" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.TerritoryType" /> class.
         /// </summary>
         public TerritoryTypeProfile()
         {

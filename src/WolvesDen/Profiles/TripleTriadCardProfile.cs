@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="TripleTriadCard" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.TripleTriadCard" />.
     /// </summary>
     public class TripleTriadCardProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.TripleTriadCard" /> class
-        /// to the <see cref="TripleTriadCard" />.
+        /// to the <see cref="AetherCurrents.Database.Entities.TripleTriadCard" />.
         /// </summary>
         public TripleTriadCardProfile()
         {

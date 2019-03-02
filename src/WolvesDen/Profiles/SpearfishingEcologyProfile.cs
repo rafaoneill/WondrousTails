@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="SpearfishingEcology" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.SpearfishingEcology" />.
     /// </summary>
     public class SpearfishingEcologyProfile : Profile
     {
         /// <summary>
-        /// Mapping from the <see cref="XivRow" /> class
-        /// to the <see cref="SpearfishingEcology" /> class.
+        /// Mapping from the <see cref="SaintCoinach.Xiv.XivRow" /> class
+        /// to the <see cref="AetherCurrents.Database.Entities.SpearfishingEcology" /> class.
         /// </summary>
         public SpearfishingEcologyProfile()
         {

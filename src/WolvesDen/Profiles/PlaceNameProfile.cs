@@ -4,13 +4,13 @@ using System.Collections.Generic;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="PlaceName" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.PlaceName" />.
     /// </summary>
     public class PlaceNameProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.PlaceName" /> class
-        /// to the <see cref="PlaceName" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.PlaceName" /> class.
         /// </summary>
         public PlaceNameProfile()
         {

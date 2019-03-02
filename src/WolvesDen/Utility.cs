@@ -1,42 +1,68 @@
 using System;
-using System.IO;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 
 namespace WolvesDen
 {
-    public enum MESSAGE_TYPE
+    /// <summary>
+    /// Types of messasges
+    /// </summary>
+    public enum MessageType
     {
-        STATUS,
-        SUCCESS,
-        INFO,
-        WARNING,
-        ERROR
+        /// <summary>
+        /// Represents status
+        /// </summary>
+        Status,
+
+        /// <summary>
+        /// Represents success
+        /// </summary>
+        Success,
+
+        /// <summary>
+        /// Represents info
+        /// </summary>
+        Info,
+
+        /// <summary>
+        /// Represents warning
+        /// </summary>
+        Warning,
+
+        /// <summary>
+        /// Represents error
+        /// </summary>
+        Error
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Utility"/> class.
+    /// </summary>
     public static class Utility
     {
-        public static void Wait (double seconds)
+        /// <summary>
+        /// Writes a message to the console.
+        /// </summary>
+        /// <param name="type">The message type.</param>
+        /// <param name="message">The message to write.</param>
+        public static void Message(MessageType type, string message)
         {
-            System.Threading.Thread.Sleep((int)(1000 * seconds));
-        }
-
-        public static void Message (MESSAGE_TYPE type, string message)
-        {
-            switch(type)
+            switch (type)
             {
-                case MESSAGE_TYPE.ERROR:
+                case MessageType.Error:
                     Console.ForegroundColor = ConsoleColor.Red;
                     break;
-                case MESSAGE_TYPE.WARNING:
+                case MessageType.Warning:
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     break;
-                case MESSAGE_TYPE.SUCCESS:
+                case MessageType.Success:
                     Console.ForegroundColor = ConsoleColor.Green;
                     break;
-                case MESSAGE_TYPE.INFO:
+                case MessageType.Info:
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     break;
-                case MESSAGE_TYPE.STATUS:
+                case MessageType.Status:
                     Console.ForegroundColor = ConsoleColor.Blue;
                     break;
                 default:
@@ -44,8 +70,7 @@ namespace WolvesDen
                     break;
             }
 
-            Console.Write("\r{0}", type.ToString().ToLower().PadRight(10));
-            //Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write("\r{0}", type.ToString().ToLower(CultureInfo.CurrentCulture).PadRight(10));
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" {0}", message);
         }

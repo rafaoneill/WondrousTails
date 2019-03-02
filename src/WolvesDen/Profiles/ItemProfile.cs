@@ -9,15 +9,15 @@ namespace WolvesDen.Profiles
     public class ItemProfile : Profile
     {
         /// <summary>
-        /// Mapping from the <see cref="SaintCoinach.Xiv.Item" /> class
-        /// to the <see cref="Item" /> class.
+        /// Mapping from the <see cref="SaintCoinach.Xiv.Item"/> class
+        /// to the <see cref="AetherCurrents.Database.Entities.Item" /> class.
         /// </summary>
         public ItemProfile()
         {
             CreateMap<SaintCoinach.Xiv.Item, Item>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
                 .ForMember(d => d.StartsWithVowel, o => o.MapFrom(s => s["StartsWithVowel"]))
-                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex","png")))
+                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex", "png", System.StringComparison.CurrentCulture)))
                 .ForMember(d => d.LevelItem, o => o.MapFrom(s => s.ItemLevel))
                 .ForMember(d => d.FilterGroup, o => o.MapFrom(s => s["FilterGroup"]))
                 .ForMember(d => d.ItemUicategory, o => o.MapFrom(s => s.ItemUICategory.Key))

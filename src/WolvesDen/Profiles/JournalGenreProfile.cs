@@ -1,5 +1,6 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
@@ -17,7 +18,7 @@ namespace WolvesDen.Profiles
             CreateMap<SaintCoinach.Xiv.JournalGenre, JournalGenre>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
                 .ForMember(d => d.JournalCategory, o => o.MapFrom(s => s.JournalCategory.Key))
-                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex","png")));
+                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex", "png", StringComparison.CurrentCulture)));
         }
     }
 }

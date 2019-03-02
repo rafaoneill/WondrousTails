@@ -1,22 +1,23 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for a <see cref="PhysicalWeapon" />.
+    /// Profile for a <see cref="AetherCurrents.Database.Entities.Item" />.
     /// </summary>
     public class PhysicalWeaponProfile : Profile
     {
         /// <summary>
-        /// Mapping from the <see cref="PhysicalWeapon" /> class
-        /// to the <see cref="PhysicalWeapon" /> class.
+        /// Mapping from the <see cref="SaintCoinach.Xiv.Items.PhysicalWeapon" /> class
+        /// to the <see cref="AetherCurrents.Database.Entities.Item" /> class.
         /// </summary>
         public PhysicalWeaponProfile()
         {
-            CreateMap<SaintCoinach.Xiv.Items.PhysicalWeapon, AetherCurrents.Database.Entities.Item>()
+            CreateMap<SaintCoinach.Xiv.Items.PhysicalWeapon, Item>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
-                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex","png")))
+                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex", "png", StringComparison.CurrentCulture)))
                 .ForMember(d => d.LevelItem, o => o.MapFrom(s => s.ItemLevel))
                 .ForMember(d => d.FilterGroup, o => o.MapFrom(s => s["FilterGroup"]))
                 .ForMember(d => d.ItemUicategory, o => o.MapFrom(s => s.ItemUICategory.Key))

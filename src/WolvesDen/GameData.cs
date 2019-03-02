@@ -33,21 +33,21 @@ namespace WolvesDen
             bool questDetailsChecked = false;
             bool questDetailsIsEmpty = false;
 
-            foreach(var sheet in _realm.GameData.AvailableSheets.ToList())
+            foreach (var sheet in _realm.GameData.AvailableSheets.ToList())
             {
                 var gameSheet = new GameSheet(_context, sheet);
 
                 var typesFound = gameSheet.SetTypes();
-                if(!typesFound)
+                if (!typesFound)
                 {
-                    Utility.Message(MESSAGE_TYPE.WARNING, "Sheet/Entity/Repository not found. Skipping the insert for " + sheet);
+                    Utility.Message(MessageType.Warning, "Sheet/Entity/Repository not found. Skipping the insert for " + sheet);
                     continue;
                 }
 
                 bool destinationIsEmpty = false;
-                if(sheet.StartsWith("quest") && sheet.Contains("/"))
+                if (sheet.StartsWith("quest", StringComparison.CurrentCulture) && sheet.Contains("/", StringComparison.CurrentCulture))
                 {
-                    if(!questDetailsChecked)
+                    if (!questDetailsChecked)
                     {
                         destinationIsEmpty = gameSheet.DestinationIsEmpty();
                         questDetailsChecked = true;
@@ -63,14 +63,16 @@ namespace WolvesDen
                     destinationIsEmpty = gameSheet.DestinationIsEmpty();
                 }
 
-                if(!destinationIsEmpty)
+                if (!destinationIsEmpty)
                 {
-                    Utility.Message(MESSAGE_TYPE.WARNING, "Table is not empty. Skipping the insert for " + sheet);
+                    Utility.Message(MessageType.Warning, "Table is not empty. Skipping the insert for " + sheet);
                     continue;
                 }
+
                 var sheetData = _realm.GameData.GetSheet(sheet).ToList();
                 gameSheet.TransferData(sheetData);
             }
+
             Console.Read();
         }
     }

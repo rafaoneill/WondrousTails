@@ -1,22 +1,23 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for an <see cref="Action" />.
+    /// Profile for an <see cref="AetherCurrents.Database.Entities.Action" />.
     /// </summary>
     public class ActionProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.Action" /> class
-        /// to the <see cref="Action" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.Action" /> class.
         /// </summary>
         public ActionProfile()
         {
-            CreateMap<SaintCoinach.Xiv.Action, Action>()
+            CreateMap<SaintCoinach.Xiv.Action, AetherCurrents.Database.Entities.Action>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
-                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex","png")))
+                .ForMember(d => d.Icon, o => o.MapFrom(s => s.Icon.Path.Replace("tex", "png", StringComparison.CurrentCulture)))
                 .ForMember(d => d.CostType, o => o.MapFrom(s => s.CostType))
                 .ForMember(d => d.Category, o => o.MapFrom(s => s.ActionCategory.Key))
                 .ForMember(d => d.TimelineUse, o => o.Ignore())

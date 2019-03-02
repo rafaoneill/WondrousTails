@@ -4,13 +4,13 @@ using AutoMapper;
 namespace WolvesDen.Profiles
 {
     /// <summary>
-    /// Profile for an <see cref="AchievementCategory" />.
+    /// Profile for an <see cref="AetherCurrents.Database.Entities.AchievementCategory" />.
     /// </summary>
     public class AchievementCategoryProfile : Profile
     {
         /// <summary>
         /// Mapping from the <see cref="SaintCoinach.Xiv.AchievementCategory" /> class
-        /// to the <see cref="AchievementCategory" /> class.
+        /// to the <see cref="AetherCurrents.Database.Entities.AchievementCategory" /> class.
         /// </summary>
         public AchievementCategoryProfile()
         {

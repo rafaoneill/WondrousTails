@@ -1,5 +1,6 @@
 using AetherCurrents.Database.Entities;
 using AutoMapper;
+using System;
 
 namespace WolvesDen.Profiles
 {
@@ -16,8 +17,8 @@ namespace WolvesDen.Profiles
         {
             CreateMap<SaintCoinach.Xiv.GatheringType, GatheringType>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.Key))
-                .ForMember(d => d.IconMain, o => o.MapFrom(s => s.MainIcon.Path.Replace("tex","png")))
-                .ForMember(d => d.IconOff, o => o.MapFrom(s => s.SubIcon.Path.Replace("tex","png")));
+                .ForMember(d => d.IconMain, o => o.MapFrom(s => s.MainIcon.Path.Replace("tex", "png", StringComparison.CurrentCulture)))
+                .ForMember(d => d.IconOff, o => o.MapFrom(s => s.SubIcon.Path.Replace("tex", "png", StringComparison.CurrentCulture)));
         }
     }
 }
