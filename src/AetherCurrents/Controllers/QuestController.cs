@@ -20,7 +20,7 @@ namespace AetherCurrents.Controllers
         {
             _context = context;
         }
-        
+
         /// <summary>
         /// Gets a quest by id.
         /// GET aethercurrents/quest/1
@@ -35,6 +35,7 @@ namespace AetherCurrents.Controllers
             {
                 return NotFound();
             }
+
             return Ok(quest);
         }
     }
