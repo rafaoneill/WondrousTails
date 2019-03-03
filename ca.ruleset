@@ -5,7 +5,9 @@
     </Rules>
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
         <Rule Id="SA1101" Action="None" /> <!-- Prefix local calls with this -->
+        <Rule Id="SA1127" Action="None" /> <!-- Generic type constraints must be on their own line -->
         <Rule Id="SA1200" Action="None" /> <!-- Using directive must appear within a namespace declaration -->
+        <Rule Id="SA1204" Action="None" /> <!-- Static members must appear before non-static members -->
         <Rule Id="SA1208" Action="None" /> <!-- Using directive for {0} must appear before directive for {1} -->
         <Rule Id="SA1309" Action="None" /> <!-- Field must not begin with an underscore -->
         <Rule Id="SA1633" Action="None" /> <!-- The file header is missing or not located at the top of the file. -->

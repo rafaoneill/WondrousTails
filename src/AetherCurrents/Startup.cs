@@ -51,7 +51,7 @@ namespace AetherCurrents
         /// </summary>
         /// <param name="app">The application builder.</param>
         /// <param name="env">The hosting environment.</param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {

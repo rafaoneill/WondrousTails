@@ -37,7 +37,7 @@ namespace WondrousTails.Tests.Domain
                 httpTest.RespondWithJson(expected);
 
                 // act
-                var response = _sut.Get<string>();
+                var response = _sut.GetResponse<string>();
 
                 // assert
                 Assert.Equal(expected, response.Result);
@@ -57,7 +57,7 @@ namespace WondrousTails.Tests.Domain
                 httpTest.RespondWithJson(expected);
 
                 // act
-                var response = _sut.Get<string>("something");
+                var response = _sut.GetResponse<string>("something");
 
                 // assert
                 Assert.Equal(expected, response.Result);
@@ -77,7 +77,7 @@ namespace WondrousTails.Tests.Domain
                 httpTest.RespondWithJson(expected);
 
                 // act
-                var response = _sut.Get<string>("something","else");
+                var response = _sut.GetResponse<string>("something","else");
 
                 // assert
                 Assert.Equal(expected, response.Result);

@@ -1,5 +1,6 @@
 using Flurl;
 using Flurl.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,30 +12,33 @@ namespace WondrousTails.Domain
     /// </summary>
     public class AetherCurrentsClient : IAetherCurrentsClient
     {
-        public string _url;
+        private readonly Uri _uri;
 
         /// <summary>
         /// The constructor. Sets up the API url to use.
         /// </summary>
-        /// <param name="url">The URL to connect to.</param>
-        public AetherCurrentsClient(string url)
+        /// <param name="uri">The URI use to connect to API.</param>
+        public AetherCurrentsClient(Uri uri)
         {
-            _url = url;
+            _uri = uri;
         }
 
-        public Task<IEnumerable<T>> Get<T>() where T : class
+        /// <inheritdoc/>
+        public Task<IEnumerable<T>> GetResponse<T>() where T : class
         {
-            return _url.GetJsonAsync<IEnumerable<T>>();
+            return _uri.AbsoluteUri.GetJsonAsync<IEnumerable<T>>();
         }
 
-        public Task<IEnumerable<T>> Get<T>(string endPoint) where T : class
+        /// <inheritdoc/>
+        public Task<IEnumerable<T>> GetResponse<T>(string endPoint) where T : class
         {
-            return _url.AppendPathSegment(endPoint).GetJsonAsync<IEnumerable<T>>();
+            return _uri.AbsoluteUri.AppendPathSegment(endPoint).GetJsonAsync<IEnumerable<T>>();
         }
 
-        public Task<IEnumerable<T>> Get<T>(params string[] endPoints) where T : class
+        /// <inheritdoc/>
+        public Task<IEnumerable<T>> GetResponse<T>(params string[] endPoints) where T : class
         {
-            return this.Get<T>(string.Join("/", endPoints));
+            return this.GetResponse<T>(string.Join("/", endPoints));
         }
     }
 }

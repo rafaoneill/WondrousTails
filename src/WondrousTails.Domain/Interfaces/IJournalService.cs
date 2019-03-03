@@ -3,6 +3,9 @@ using WondrousTails.Domain.Response;
 
 namespace WondrousTails.Domain.Interfaces
 {
+    /// <summary>
+    /// Interface for a Journal Service
+    /// </summary>
     public interface IJournalService
     {
         /// <summary>

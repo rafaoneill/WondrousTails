@@ -6,12 +6,12 @@ namespace WondrousTails.Domain.Response
     public class JournalResponse
     {
         /// <summary>
-        /// Journal Section Id
-        /// <value></value>
+        /// Gets or sets the Journal Section Id
+        /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// Journal Section Name
+        /// Gets or sets the Journal Section Name
         /// </summary>
         public string Name { get; set; }
     }

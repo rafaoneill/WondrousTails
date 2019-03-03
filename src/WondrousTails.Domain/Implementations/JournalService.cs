@@ -12,7 +12,7 @@ namespace WondrousTails.Domain.Implementations
     /// </summary>
     public class JournalService : IJournalService
     {
-        private string _endPoint = "journal";
+        private const string _endPoint = "journal";
         private readonly IAetherCurrentsClient _client;
 
         /// <summary>
@@ -24,10 +24,11 @@ namespace WondrousTails.Domain.Implementations
             _client = client;
         }
 
+        /// <inheritdoc/>
         public IEnumerable<JournalResponse> GetJournalSections()
         {
-            var response = _client.Get<JournalResponse>(_endPoint, "sections");
-            
+            var response = _client.GetResponse<JournalResponse>(_endPoint, "sections");
+
             return response.Result;
         }
     }

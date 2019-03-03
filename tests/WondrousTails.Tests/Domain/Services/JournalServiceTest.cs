@@ -43,7 +43,7 @@ namespace WondrousTails.Tests.Domain
         {
             // arrange
             var journalSections = _fixture.CreateMany<JournalResponse>(3);
-            _mockClient.Setup(s => s.Get<JournalResponse>("journal", "sections")).Returns(Task.FromResult(journalSections));
+            _mockClient.Setup(s => s.GetResponse<JournalResponse>("journal", "sections")).Returns(Task.FromResult(journalSections));
             _sut =  new JournalService(_mockClient.Object);
 
             // act
