@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CodeAnalysisRuleSet>../../ca.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\netcoreapp2.0\doc.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp2.1\doc.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
