@@ -17,6 +17,7 @@ namespace WolvesDen.Tests
         /// <summary>
         /// Setup, initializes the Mapper
         /// </summary>
+        /// <param name="fixture">The AutoMapperFixture object.</param>
         public FishingSpotProfileTest(AutoMapperFixture fixture)
         {
             _fixture = fixture;

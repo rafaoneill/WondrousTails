@@ -2,6 +2,9 @@ using Xunit;
 
 namespace WolvesDen.Tests
 {
+    /// <summary>
+    /// The AutoMapperCollection class.
+    /// </summary>
     [CollectionDefinition("AutoMapper collection")]
     public class AutoMapperCollection : ICollectionFixture<AutoMapperFixture>
     {

@@ -13,7 +13,7 @@ namespace AetherCurrents.Tests
     /// <summary>
     /// Set of tests for the JournalController
     /// </summary>
-    public class JournalControllerTest : IDisposable
+    public sealed class JournalControllerTest : IDisposable
     {
         private JournalController _controller;
         private AetherCurrentsContext _context;
@@ -89,7 +89,7 @@ namespace AetherCurrents.Tests
             _context.SaveChanges();
 
             var result = _controller.GetJournalSection(section.Id).Result;
-            
+
             Assert.IsType<OkObjectResult>(result);
             var data = (result as OkObjectResult).Value;
             Assert.Equal(section, data);
@@ -123,7 +123,7 @@ namespace AetherCurrents.Tests
             _context.SaveChanges();
 
             var result = _controller.GetJournalCategoriesInSection(category.JournalSectionId).Result;
-            
+
             Assert.IsType<OkObjectResult>(result);
             var data = (result as OkObjectResult).Value as List<JournalCategory>;
             Assert.Single(data);
@@ -140,9 +140,8 @@ namespace AetherCurrents.Tests
         public void GetJournalCategoriesInSection_WhenNotAvailable_ReturnsNoContent()
         {
             var result = _controller.GetJournalCategoriesInSection(1).Result;
-            
+
             Assert.IsType<NoContentResult>(result);
         }
-
     }
 }

@@ -11,7 +11,7 @@ namespace AetherCurrents.Tests
     /// <summary>
     /// Set of tests for the QuestController
     /// </summary>
-    public class QuestControllerTest : IDisposable
+    public sealed class QuestControllerTest : IDisposable
     {
         private QuestController _controller;
         private AetherCurrentsContext _context;
