@@ -1,5 +1,6 @@
 using AutoFixture;
 using Flurl.Http.Testing;
+using System;
 using System.Collections.Generic;
 using WondrousTails.Domain;
 using Xunit;
@@ -21,7 +22,8 @@ namespace WondrousTails.Tests.Domain
         public AetherCurrentsClientTest()
         {
             _fixture = new Fixture();
-            _sut = new AetherCurrentsClient("https://api.mysite.com");
+            var uri = new Uri("https://api.mysite.com");
+            _sut = new AetherCurrentsClient(uri);
         }
 
         /// <summary>
@@ -30,7 +32,7 @@ namespace WondrousTails.Tests.Domain
         [Fact]
         public void Get_WithoutParameters_Works()
         {
-            using(var httpTest = new HttpTest())
+            using (var httpTest = new HttpTest())
             {
                 // arrange
                 var expected = _fixture.CreateMany<string>(3);
@@ -50,7 +52,7 @@ namespace WondrousTails.Tests.Domain
         [Fact]
         public void Get_WithEndPoint_Works()
         {
-            using(var httpTest = new HttpTest())
+            using (var httpTest = new HttpTest())
             {
                 // arrange
                 var expected = _fixture.CreateMany<string>(3);
@@ -70,14 +72,14 @@ namespace WondrousTails.Tests.Domain
         [Fact]
         public void Get_WithMultipleEndPoints_Works()
         {
-            using(var httpTest = new HttpTest())
+            using (var httpTest = new HttpTest())
             {
                 // arrange
                 var expected = _fixture.CreateMany<string>(3);
                 httpTest.RespondWithJson(expected);
 
                 // act
-                var response = _sut.GetResponse<string>("something","else");
+                var response = _sut.GetResponse<string>("something", "else");
 
                 // assert
                 Assert.Equal(expected, response.Result);
